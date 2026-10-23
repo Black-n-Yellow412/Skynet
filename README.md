@@ -24,36 +24,36 @@ Here are the files that have been edited from a UI and/or color customization st
 
 
 # Custom XMLs:
-Includes.xml
-Variables.xml
-SkinSettings.xml
-Settings.xml
-VideoOSD.xml
-Home.xml
-includes_Home.xml
-Includes_Animations.xml
-DialogFullScreenInfo.xml
-Includes_Buttons.xml
-script-skinshortcuts.xml
-Custom_1109_TopBarOverlay.xml
-View_54_InfoWall.xml
-Startup.xml
-shortcuts/menus.xml
-Includes_MediaMenu.xml
-script-skin_helper_service-ColorPicker.xml
+- Includes.xml
+- Variables.xml
+- SkinSettings.xml
+- Settings.xml
+- VideoOSD.xml
+- Home.xml
+- includes_Home.xml
+- Includes_Animations.xml
+- DialogFullScreenInfo.xml
+- Includes_Buttons.xml
+- script-skinshortcuts.xml
+- Custom_1109_TopBarOverlay.xml
+- View_54_InfoWall.xml
+- Startup.xml
+- shortcuts/menus.xml
+- Includes_MediaMenu.xml
+- script-skin_helper_service-ColorPicker.xml
 
 # Custom scripts/assets:
-scripts/rgb_sync.py
-scripts/colorpicker/default.py
-scripts/colorpicker/resources/lib/ColorPicker.py
-scripts/colorpicker/resources/colors/colors.xml
-scripts/colorpicker/resources/language/resource.language.en_us/strings.po
-scripts/colorpicker/resources/skins/Default/1080i/script-skin_helper_service-ColorPicker.xml
-extras/skynet-logo.png
-extras/skynet-pillar.png
-extras/original-skynet-logo.png
-extras/skynet-yellow-logo.png
-resources/icon.png
+- scripts/rgb_sync.py
+- scripts/colorpicker/default.py
+- scripts/colorpicker/resources/lib/ColorPicker.py
+- scripts/colorpicker/resources/colors/colors.xml
+- scripts/colorpicker/resources/language/resource.language.en_us/strings.po
+- scripts/colorpicker/resources/skins/Default/1080i/script-skin_helper_service-ColorPicker.xml
+- extras/skynet-logo.png
+- extras/skynet-pillar.png
+- extras/original-skynet-logo.png
+- extras/skynet-yellow-logo.png
+- resources/icon.png
 
 
 
