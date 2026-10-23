@@ -56,4 +56,38 @@ Here are the files that have been edited from a UI and/or color customization st
 - resources/icon.png
 
 
+<p align="center">
+  <img src="resources/screenshots/1.png" alt="Skynet Kodi Skin" width="600">
+</p>
 
+<p align="center">
+  <img src="resources/screenshots/2.png" alt="Skynet Kodi Skin" width="600">
+</p>
+
+<p align="center">
+  <img src="resources/screenshots/3.png" alt="Skynet Kodi Skin" width="600">
+</p>
+
+<p align="center">
+  <img src="resources/screenshots/4.png" alt="Skynet Kodi Skin" width="600">
+</p>
+
+<p align="center">
+  <img src="resources/screenshots/5.png" alt="Skynet Kodi Skin" width="600">
+</p>
+
+<p align="center">
+  <img src="resources/screenshots/6.png" alt="Skynet Kodi Skin" width="600">
+</p>
+
+<p align="center">
+  <img src="resources/screenshots/7.png" alt="Skynet Kodi Skin" width="600">
+</p>
+
+<p align="center">
+  <img src="resources/screenshots/8.png" alt="Skynet Kodi Skin" width="600">
+</p>
+
+<p align="center">
+  <img src="resources/screenshots/9.png" alt="Skynet Kodi Skin" width="600">
+</p>
