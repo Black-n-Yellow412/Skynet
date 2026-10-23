@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Estuary MOD v2
-# Addon id: skin.estuary.skynet
+# Addon id: skin.estuary.modv2
 # Addon Provider: Guilouz, PvD
 msgid ""
 msgstr ""
@@ -332,10 +332,10 @@ msgctxt "#31068"
 msgid "Choose presets"
 msgstr "Zvolte předvolby"
 
-#: /xml/AddonBrowser.xml
-msgctxt "#31069"
-msgid "Last Updated"
-msgstr "Naposledy aktualizováno"
+#: /xml/MyWeather.xml
+msgctxt "31069"
+msgid "Updating..."
+msgstr ""
 
 #: /xml/DialogAddonInfo.xml
 msgctxt "#31071"
@@ -2415,12 +2415,8 @@ msgid "Sort Order"
 msgstr "Pořadí řazení"
 
 msgctxt "#31592"
-msgid "Show Path Navigation (Breadcrumbs) in List Views"
-msgstr "Zobrazit navigaci po cestě (drobečková navigace) v zobrazeních seznamu"
-
-msgctxt "#31593"
-msgid "Show only 'current item / item count' Information"
-msgstr "Zobrazit pouze informace 'aktuální položka / počet položek'"
+msgid "Show Path Navigation (Breadcrumbs)"
+msgstr "Zobrazit navigaci po cestě (drobečková navigace)"
 
 msgctxt "#31594"
 msgid "Set Animated Poster"

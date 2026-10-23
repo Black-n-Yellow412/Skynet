@@ -1,5 +1,5 @@
 # Addon Name: Estuary MOD v2
-# Addon id: skin.estuary.skynet
+# Addon id: skin.estuary.modv2
 # Addon Provider: Guilouz, PvD
 msgid ""
 msgstr ""
@@ -335,10 +335,10 @@ msgctxt "#31068"
 msgid "Choose presets"
 msgstr "Escolher predefinições"
 
-#: /xml/AddonBrowser.xml
-msgctxt "#31069"
-msgid "Last Updated"
-msgstr "Última atualização"
+#: /xml/MyWeather.xml
+msgctxt "31069"
+msgid "Updating..."
+msgstr ""
 
 #: /xml/DialogAddonInfo.xml
 msgctxt "#31071"
@@ -2447,12 +2447,8 @@ msgid "Sort Order"
 msgstr "Ordem de classificação"
 
 msgctxt "#31592"
-msgid "Show Path Navigation (Breadcrumbs) in List Views"
-msgstr "Mostrar navegação de caminho (migalhas de pão) em exibições de lista"
-
-msgctxt "#31593"
-msgid "Show only 'current item / item count' Information"
-msgstr "Mostrar apenas informações de 'item atual/contagem de itens'"
+msgid "Show Path Navigation (Breadcrumbs)"
+msgstr "Mostrar navegação de caminho (migalhas de pão)"
 
 msgctxt "#31594"
 msgid "Set Animated Poster"

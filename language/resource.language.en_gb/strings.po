@@ -338,9 +338,9 @@ msgctxt "#31068"
 msgid "Choose presets"
 msgstr ""
 
-#: /xml/AddonBrowser.xml
-msgctxt "#31069"
-msgid "Last Updated"
+#: /xml/MyWeather.xml
+msgctxt "31069"
+msgid "Updating..."
 msgstr ""
 
 #: /xml/DialogAddonInfo.xml
@@ -2451,11 +2451,7 @@ msgid "Sort Order"
 msgstr ""
 
 msgctxt "#31592"
-msgid "Show Path Navigation (Breadcrumbs) in List Views"
-msgstr ""
-
-msgctxt "#31593"
-msgid "Show only 'current item / item count' Information"
+msgid "Show Path Navigation (Breadcrumbs)"
 msgstr ""
 
 msgctxt "#31594"
@@ -3021,4 +3017,34 @@ msgstr ""
 #: /xml/DialogPlayerProcessInfo.xml
 msgctxt "#31723"
 msgid "CPU & RAM Usage :"
+msgstr ""
+
+#: /xml/script-skinshortcuts.xml
+msgctxt "#31724"
+msgid "Set icon for menu item"
+msgstr ""
+
+#: /xml/script-skinshortcuts.xml
+msgctxt "#31725"
+msgid "Skin Icons"
+msgstr ""
+
+#: /xml/script-skinshortcuts.xml
+msgctxt "#31726"
+msgid "Background Pictures"
+msgstr ""
+
+#: Video OSD
+msgctxt "#31727"
+msgid "PRC"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31728"
+msgid "Dangerous - Skin Reset"
+msgstr ""
+
+#: /xml/SkinSettings.xml
+msgctxt "#31729"
+msgid "Reset Skin to default values"
 msgstr ""

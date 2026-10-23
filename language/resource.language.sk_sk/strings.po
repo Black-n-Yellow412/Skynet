@@ -1,11 +1,11 @@
 # Kodi Media Center language file
 # Addon Name: Estuary MOD v2
-# Addon id: skin.estuary.skynet
+# Addon id: skin.estuary.modv2
 # Addon Provider: Guilouz, PvD
 msgid ""
 msgstr ""
 "Project-Id-Version: Skin Estuary MOD V2 for KODI 20 Nexus KN Edition\n"
-"Report-Msgid-Bugs-To: https://github.com/b-jesch/skin.estuary.skynet\n"
+"Report-Msgid-Bugs-To: https://github.com/b-jesch/skin.estuary.modv2\n"
 "POT-Creation-Date: 2023-11-15 23:32+2\n"
 "PO-Revision-Date: 2024-09-14 09:54+0000\n"
 "Last-Translator: Weblate Admin <weblate@example.com>\n"
@@ -336,10 +336,10 @@ msgctxt "#31068"
 msgid "Choose presets"
 msgstr "Vybrať predvoľby"
 
-#: /xml/AddonBrowser.xml
-msgctxt "#31069"
-msgid "Last Updated"
-msgstr "Naposledy aktualizované"
+#: /xml/MyWeather.xml
+msgctxt "31069"
+msgid "Updating..."
+msgstr ""
 
 #: /xml/DialogAddonInfo.xml
 msgctxt "#31071"
@@ -2442,12 +2442,8 @@ msgid "Sort Order"
 msgstr "Poradie triedenia"
 
 msgctxt "#31592"
-msgid "Show Path Navigation (Breadcrumbs) in List Views"
-msgstr "Zobraziť navigáciu po ceste (Breadcrumbs) v zobrazeniach zoznamu"
-
-msgctxt "#31593"
-msgid "Show only 'current item / item count' Information"
-msgstr "Zobraziť iba informáciu „aktuálna položka / počet položiek“"
+msgid "Show Path Navigation (Breadcrumbs)"
+msgstr "Zobraziť navigáciu po ceste (Breadcrumbs)"
 
 msgctxt "#31594"
 msgid "Set Animated Poster"

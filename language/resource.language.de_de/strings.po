@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Estuary MOD v2
-# Addon id: skin.estuary.skynet
+# Addon id: skin.estuary.modv2
 # Addon Provider: Guilouz, PvD
 msgid ""
 msgstr ""
@@ -338,10 +338,10 @@ msgctxt "#31068"
 msgid "Choose presets"
 msgstr "Presets wählen"
 
-#: /xml/AddonBrowser.xml
+#: /xml/MyWeather.xml
 msgctxt "#31069"
-msgid "Last Updated"
-msgstr "Zuletzt aktualisiert"
+msgid "Updating..."
+msgstr "Aktualisierung..."
 
 #: /xml/DialogAddonInfo.xml
 msgctxt "#31071"
@@ -1586,7 +1586,7 @@ msgstr "Die persönliche Bibliothek ist derzeit leer. Um sie mit Inhalten zu fü
 #: /xml/Home.xml
 msgctxt "#31374"
 msgid "Your pictures library is currently empty. In order to populate it with your personal pictures, add a pictures source. After the source has been added you will be able to browse your pictures list."
-msgstr "Die persönliche Bibliothek ist derzeit leer. Um sie mit Inhalten zu füllen, zu \"Dateien\" wechseln, eine Medienquelle hinzufügen und diese dann konfigurieren. Nachdem die Quelle hinzugefügt und indiziert wurde, kann die Bibliothek durchstöbert werden."
+msgstr "Die persönliche Bibliothek ist derzeit leer. Um sie mit Inhalten zu füllen, eine Bildquelle hinzufügen und diese dann konfigurieren. Nachdem die Quelle hinzugefügt und indiziert wurde, kann die Bibliothek durchstöbert werden."
 
 #: /xml/Home.xml
 msgctxt "#31375"
@@ -2311,12 +2311,9 @@ msgid "Sort Order"
 msgstr "Sortierung"
 
 msgctxt "#31592"
-msgid "Show Path Navigation (Breadcrumbs) in List Views"
-msgstr "Zeige Navigationspfad (Breadcrumbs) in Listen Ansichten"
+msgid "Show Path Navigation (Breadcrumbs)"
+msgstr "Zeige Navigationspfad (Breadcrumbs)"
 
-msgctxt "#31593"
-msgid "Show only 'current item / item count' Information"
-msgstr "Zeige nur Info 'aktueller Eintrag / alle Einträge'"
 
 msgctxt "#31594"
 msgid "Set Animated Poster"
@@ -2716,20 +2713,16 @@ msgstr "Zeige Laufzeit in Listen"
 #: Player Process Info
 
 msgctxt "#31686"
-msgid "Video Queue"
-msgstr "Video Queue"
+msgid "Video Queue / Data"
+msgstr "Video Queue / Daten"
 
-msgctxt "#31687"
-msgid "Video Queue Data"
-msgstr "Video Queue Daten"
+#: Empty string 31687
 
 msgctxt "#31688"
-msgid "Audio Queue"
-msgstr "Audio Queue"
+msgid "Audio Queue / Data"
+msgstr "Audio Queue / Daten"
 
-msgctxt "#31689"
-msgid "Audio Queue Data"
-msgstr "Audo Queue Daten"
+#: Empty string 31689
 
 msgctxt "#31690"
 msgid "HDR & DV"
@@ -2862,3 +2855,43 @@ msgstr "Originaltitel"
 msgctxt "#31721"
 msgid "Localized title"
 msgstr "Lokalisierter Titel"
+
+#: /xml/DialogVideoInfo.xml
+msgctxt "#31722"
+msgid "Search 'Making Of' on Youtube"
+msgstr "'Making Of' auf Youtube suchen"
+
+#: /xml/DialogPlayerProcessInfo.xml
+msgctxt "#31723"
+msgid "CPU & RAM Usage :"
+msgstr "CPU & RAM Nutzung :"
+
+#: /xml/script-skinshortcuts.xml
+msgctxt "#31724"
+msgid "Set icon for menu item"
+msgstr "Icon für Menüeintrag festlegen"
+
+#: /xml/script-skinshortcuts.xml
+msgctxt "#31725"
+msgid "Skin Icons"
+msgstr "Skin Icons"
+
+#: /xml/script-skinshortcuts.xml
+msgctxt "#31726"
+msgid "Background Pictures"
+msgstr "Hintergrundbilder"
+
+#: Video OSD
+msgctxt "#31727"
+msgid "PRC"
+msgstr "PRC"
+
+#: /xml/SkinSettings.xml
+msgctxt "#31728"
+msgid "Dangerous - Skin Reset"
+msgstr "Achtung - Skin Reset"
+
+#: /xml/SkinSettings.xml
+msgctxt "#31729"
+msgid "Reset Skin to default values"
+msgstr "Skin auf Standardeinstellungen zurücksetzen"
