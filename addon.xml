@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.estuary.skynet" version="1.5" name="Estuary Skynet" provider-name="Black-n-Yellow412">
+<addon id="skin.skynet" version="22.0+piers" name="Skynet" provider-name="Black-n-Yellow412">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/>
-		<import addon="xbmc.gui" version="5.17.0"/>
-		<import addon="script.skinshortcuts" version="1.1.3"/>
+		<import addon="xbmc.gui" version="5.18.0"/>
+		<!--<import addon="script.skinshortcuts" version="1.1.3"/>-->
 		<import addon="script.image.resource.select" version="3.0.2"/>
 		<import addon="script.module.pvr.artwork" version="2.0.0"/>
 	</requires>
@@ -31,21 +31,29 @@
 		</item>
     	</menu>
  	</extension>
-	
-<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Kodi Estuary Skynet Edition</summary>
-		<description lang="en_GB">This is a heavily customized spinoff of the amazing Kodi Estuary MOD V2 by B-Jesch skin. It features an integrated, custom colorpicker palette and a narrowed-down sidebar on the Home screen (more real-estate for posters and widgets). This spinoff skin was reimagined with one main goal: Color choice independency. There are multiple new color options throughout the skin settings UI which allow the user to make this Estuary skin a work of their own creative artistic imagination. The existing Estuary MOD V2 color settings have been kept in place as well but remapped to the new colorpicker (also available on the Black-n-Yellow412 Github page). </description>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Estuary MOD V2 skin by Guilouz, adapted for Piers by PvD</summary>
+		<description lang="en_GB">Estuary MOD V2 is a mod from Estuary by Guilouz for Kodi 18 and adapted for Kodi 22 (Piers) by PvD from Kodinerds Community. It attempts to be easy for first time Kodi users to understand and use.</description>
 		<disclaimer lang="en_GB">For better experience, be sure to install all addons required by the skin.</disclaimer>
 		<platform>all</platform>
 		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
-		<source>https://github.com/Black-n-Yellow412/</source>
-		<assets>
-			<icon>resources/icon.png</icon>
-			<fanart>resources/fanart.jpg</fanart>
-		</assets>
-		<news>
-Estuary Skynet Edition Initialization Complete.
-		</news>
+		<source>https://github.com/b-jesch/skin.estuary.modv2/tree/Piers</source>
+			<assets>
+				<icon>resources/icon.png</icon>
+				<fanart>resources/fanart.jpg</fanart>
+				<screenshot>resources/screenshots/screenshot_1.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_2.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_5.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_7.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_8.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_9.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_10.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_13.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_14.png</screenshot>
+				<screenshot>resources/screenshots/screenshot_15.png</screenshot>
+			</assets>
+        <news>
+For a complete view of changes visit https://github.com/b-jesch/skin.estuary.modv2/tree/Piers
+        </news>
 	</extension>
-	
 </addon>
