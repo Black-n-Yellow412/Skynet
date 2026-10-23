@@ -24,21 +24,26 @@ def get_md5(filepath):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()
 
-def create_addon_zip(source_dir, output_zip_path, addon_id, exclude_patterns=None):
+def create_addon_zip(source_dir, output_zip_path, addon_id, exclude_patterns=None, is_skin=False):
     if exclude_patterns is None:
         exclude_patterns = {
             ".git", ".github", "__pycache__", ".gitignore", ".DS_Store",
             "build", "dist", "Working_Backups", "AI Workshop", "UI_Research"
         }
     
-    with zipfile.ZipFile(output_zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+    with zipfile.ZipFile(output_zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
         for root, dirs, files in os.walk(source_dir):
             dirs[:] = [d for d in dirs if d not in exclude_patterns and not d.startswith(".")]
             for file in files:
-                if file in exclude_patterns or file.endswith(".pyc") or file.endswith(".zip") or file.endswith(".md5"):
-                    continue
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, source_dir)
+                norm_rel = rel_path.replace("\\", "/")
+                # For skin installable zip, exclude screenshots (documentation only, not used by Kodi runtime)
+                # This keeps the zip safely under GitHub's 100 MB hard limit.
+                if is_skin and norm_rel.startswith("resources/screenshots"):
+                    continue
+                if file in exclude_patterns or file.endswith(".pyc") or file.endswith(".zip") or file.endswith(".md5"):
+                    continue
                 arcname = os.path.join(addon_id, rel_path)
                 zf.write(full_path, arcname)
 
@@ -79,7 +84,7 @@ def build_repo(skin_source_dir, repo_addon_dir, output_dir):
     skin_zip_name = f"{skin_id}-{skin_version}.zip"
     skin_zip_path = os.path.join(skin_out_dir, skin_zip_name)
     print(f"[+] Packaging skin into {skin_zip_path}...")
-    create_addon_zip(skin_source_dir, skin_zip_path, skin_id)
+    create_addon_zip(skin_source_dir, skin_zip_path, skin_id, is_skin=True)
     
     # Generate Skin Zip MD5
     skin_zip_md5 = get_md5(skin_zip_path)
@@ -92,6 +97,14 @@ def build_repo(skin_source_dir, repo_addon_dir, output_dir):
         src_asset = os.path.join(skin_source_dir, "resources", asset)
         if os.path.exists(src_asset):
             shutil.copy2(src_asset, os.path.join(skin_out_dir, asset))
+            
+    # Copy screenshots to web output for browser viewing and repository metadata
+    src_screenshots = os.path.join(skin_source_dir, "resources", "screenshots")
+    if os.path.exists(src_screenshots):
+        dest_screenshots = os.path.join(skin_out_dir, "resources", "screenshots")
+        os.makedirs(dest_screenshots, exist_ok=True)
+        for s in os.listdir(src_screenshots):
+            shutil.copy2(os.path.join(src_screenshots, s), os.path.join(dest_screenshots, s))
             
     # 5. Package Repo Zip
     repo_zip_name = f"{repo_id}-{repo_version}.zip"
