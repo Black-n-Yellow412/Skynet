@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>9000</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<include condition="Skin.HasSetting(powermenu_list)">Animation_DialogPopupOpenClose</include>
+	<controls>
+		<control type="group">
+			<visible>!Skin.HasSetting(powermenu_list)</visible>
+			<include>FullScreenDimensions</include>
+			<control type="image">
+				<texture background="true">colors/black.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<include>DefaultBackground</include>
+			<control type="image">
+				<depth>DepthBackground</depth>
+				<aspectratio>scale</aspectratio>
+				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+				<texture background="true" colordiffuse="$VAR[Background_Opacity]">special://skin/extras/home-images/power.jpg</texture>
+				<visible>![Player.HasVideo + !Skin.HasSetting(background_showvideo)] + !Skin.HasSetting(enable_power_background)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<width>1900</width>
+			<centertop>55%</centertop>
+			<height>795</height>
+			<include>OpenClose_Right</include>
+			<visible>!Skin.HasSetting(powermenu_iconlist) + !Skin.HasSetting(powermenu_list)</visible>
+			<control id="9000" type="panel">
+				<left>0</left>
+				<width>100%</width>
+				<top>0</top>
+				<height>780</height>
+				<include content="SettingsPanel">
+					<param name="icon_height" value="120" />
+					<param name="icon_width" value="300" />
+					<param name="aspect" value="keep" />
+				</include>
+				<include content="PowerMenuItems" />
+			</control>
+		</control>
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<left>0</left>
+			<right>0</right>
+			<centertop>40%</centertop>
+			<include>OpenClose_Right</include>
+			<visible>Skin.HasSetting(powermenu_iconlist)</visible>
+			<control id="9000" type="wraplist">
+				<centerleft>50%</centerleft>
+				<centertop>70%</centertop>
+				<width>1900</width>
+				<height>380</height>
+				<focusposition>2</focusposition>
+				<orientation>horizontal</orientation>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<include content="SettingsPanel">
+					<param name="icon_height" value="120" />
+					<param name="icon_width" value="300" />
+					<param name="aspect" value="keep" />
+				</include>
+				<include content="PowerMenuItems" />
+			</control>
+		</control>
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<width>700</width>
+			<centertop>50%</centertop>
+			<height>700</height>
+			<visible>Skin.HasSetting(powermenu_list)</visible>
+			<include content="DialogBackgroundCommons">
+				<param name="width" value="700" />
+				<param name="height" value="80" />
+				<param name="header_label" value="$LOCALIZE[31072]" />
+				<param name="header_id" value="2" />
+			</include>
+			<control type="panel" id="9000">
+				<include>ButtonMenuList</include>
+				<include content="PowerMenuItems" />
+			</control>
+		</control>
+		<include condition="!Skin.HasSetting(powermenu_list)">TopBar</include>
+		<include condition="!Skin.HasSetting(powermenu_list)">BottomBar</include>
+		<control type="group">
+			<depth>DepthBars</depth>
+			<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
+			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<visible>!Skin.HasSetting(powermenu_list)</visible>
+			<top>20</top>
+			<left>20</left>
+			<control type="image">
+				<aspectratio>keep</aspectratio>
+				<width>56</width>
+				<height>56</height>
+				<texture colordiffuse="$VAR[LogoColorVar]">$VAR[LogoVar]</texture>
+			</control>
+			<control type="image">
+				<left>55</left>
+				<top>4</top>
+				<aspectratio>keep</aspectratio>
+				<width>202</width>
+				<height>50</height>
+				<texture>$VAR[LogoTextVar]</texture>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<onunload>RunScript(skin.estuary.modv2,getKodiSetting,lookandfeel.startupaction)</onunload>
+	<onunload condition="!String.IsEmpty(Window(home).property(lookandfeel.startupaction)) + !String.IsEqual(Window(home).property(lookandfeel.startupaction),0)">Skin.SetBool(EnableSplashScreen)</onunload>
+	<onunload>RunScript(skin.estuary.modv2,getKodiSetting,videolibrary.showunwatchedplots)</onunload>
+	<defaultcontrol>9000</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include>FullScreenDimensions</include>
+		<include>DefaultBackground</include>
+		<control type="image">
+			<depth>DepthBackground</depth>
+			<left>100</left>
+			<top>40</top>
+			<right>100</right>
+			<bottom>40</bottom>
+			<aspectratio align="center" aligny="center">keep</aspectratio>
+			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+			<texture background="true" colordiffuse="70FFFFFF">special://skin/extras/original-skynet-logo.png</texture>
+			<visible>![Player.HasVideo + !Skin.HasSetting(background_showvideo)] + !Skin.HasSetting(enable_settings_background)</visible>
+		</control>
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<width>1700</width>
+			<top>0</top>
+			<bottom>0</bottom>
+			<include>OpenClose_Right</include>
+			<control type="panel" id="9000">
+				<left>0</left>
+				<top>180</top>
+				<width>1700</width>
+				<height>720</height>
+				<pagecontrol>60</pagecontrol>
+				<onright>9000</onright>
+				<onleft>9000</onleft>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<include content="SettingsGrid" />
+				<content>
+					<item id="1">
+						<label>Skin Settings</label>
+						<label2>Customize Skynet appearance, home menu, and more.</label2>
+						<onclick>ActivateWindow(SkinSettings)</onclick>
+						<icon>special://skin/extras/settings/skin_settings.png</icon>
+					</item>
+					<item id="2">
+						<label>Services</label>
+						<label2>Manage streaming services, network, and background services.</label2>
+						<onclick>ActivateWindow(ServiceSettings)</onclick>
+						<icon>special://skin/extras/settings/services.png</icon>
+					</item>
+					<item id="3">
+						<label>Player</label>
+						<label2>Configure playback settings for video, audio, and subtitles.</label2>
+						<onclick>ActivateWindow(PlayerSettings)</onclick>
+						<icon>special://skin/extras/settings/Player.png</icon>
+					</item>
+					<item id="4">
+						<label>Media</label>
+						<label2>Manage library settings and media sources.</label2>
+						<onclick>ActivateWindow(MediaSettings)</onclick>
+						<icon>special://skin/extras/settings/media.png</icon>
+					</item>
+					<item id="5">
+						<label>Interface</label>
+						<label2>Adjust Kodi interface settings, fonts, and skin behavior.</label2>
+						<onclick>ActivateWindow(InterfaceSettings)</onclick>
+						<icon>special://skin/extras/settings/interface.png</icon>
+					</item>
+					<item id="6">
+						<label>System Settings</label>
+						<label2>Configure core system settings and hardware options.</label2>
+						<onclick>ActivateWindow(SystemSettings)</onclick>
+						<icon>special://skin/extras/settings/system_settings.png</icon>
+					</item>
+					<item id="7">
+						<label>Add-ons</label>
+						<label2>Install and manage add-ons and repositories.</label2>
+						<onclick>ActivateWindow(AddonBrowser)</onclick>
+						<icon>special://skin/extras/settings/addons.png</icon>
+					</item>
+					<item id="8">
+						<label>File Manager</label>
+						<label2>Browse and manage storage drives, files, and sources.</label2>
+						<onclick>ActivateWindow(FileManager)</onclick>
+						<icon>special://skin/extras/settings/file_manager.png</icon>
+					</item>
+					<item id="9">
+						<label>Profiles</label>
+						<label2>Manage user accounts and profile configuration.</label2>
+						<onclick>ActivateWindow(Profiles)</onclick>
+						<icon>special://skin/extras/settings/profiles.png</icon>
+					</item>
+					<item id="10">
+						<label>Color Theme</label>
+						<label2>Restore or switch Skynet color themes.</label2>
+						<onclick>RunScript(script.skin.helper.skinbackup,action=restore,filter=Color)</onclick>
+						<icon>special://skin/extras/settings/color_theme.png</icon>
+					</item>
+				</content>
+			</control>
+		</control>
+		<include content="SettingsScrollbar">
+			<param name="top">180</param>
+			<param name="height">700</param>
+			<param name="leftright">9000</param>
+			<param name="right">60</param>
+		</include>
+		<include>TopBar</include>
+		<include>BottomBar</include>
+	</controls>
+</window>
