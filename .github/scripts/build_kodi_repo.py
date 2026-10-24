@@ -146,149 +146,31 @@ def build_repo(skin_source_dir, repo_addon_dir, output_dir):
     print(f"[+] Generated {master_md5_path}")
     
     # 7. Generate index.html for web and Kodi HTTP File Manager browsing
+    # Kodi's HTTPDirectory parser requires a strict Apache-style directory listing format:
+    # 1. 'href' must be the first attribute inside the <a> tag (no classes or other attributes before it).
+    # 2. Each entry must be on a single line with trailing metadata (date, size) so the regex can match.
+    # 3. The dot in Kodi's regex does not match newlines, so multiline HTML layouts fail.
     index_html_path = os.path.join(output_dir, "index.html")
+    
+    # Get current date/time in Apache format (e.g. 24-Jul-2026 21:49)
+    import datetime
+    now = datetime.datetime.now()
+    apache_date = now.strftime("%d-%b-%Y %H:%M")
+    
     index_html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Skynet Kodi Repository</title>
-    <style>
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-        }}
-        .container {{
-            max-width: 750px;
-            width: 100%;
-        }}
-        h1 {{
-            color: #f5c518;
-            margin-bottom: 8px;
-            font-size: 2rem;
-        }}
-        p.subtitle {{
-            color: #8b949e;
-            margin-top: 0;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }}
-        .card {{
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 24px;
-        }}
-        h2 {{
-            color: #ffffff;
-            margin-top: 0;
-            font-size: 1.3rem;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 10px;
-        }}
-        ul {{
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }}
-        li {{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 16px;
-            border-bottom: 1px solid #21262d;
-        }}
-        li:last-child {{
-            border-bottom: none;
-        }}
-        a.download-btn {{
-            background-color: #238636;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-block;
-        }}
-        a.download-btn:hover {{
-            background-color: #2ea043;
-        }}
-        .file-name {{
-            font-family: monospace;
-            font-size: 1rem;
-            color: #58a6ff;
-            text-decoration: none;
-        }}
-        .file-name:hover {{
-            text-decoration: underline;
-        }}
-        .file-info {{
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }}
-        .file-meta {{
-            color: #8b949e;
-            font-size: 0.85rem;
-        }}
-        ol {{
-            padding-left: 20px;
-            color: #c9d1d9;
-            line-height: 1.6;
-        }}
-        code {{
-            background-color: #21262d;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #79c0ff;
-        }}
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Skynet Kodi Repository</h1>
-        <p class="subtitle">Official auto-updating repository for Skynet Estuary Mod v2 (Kodi 22 Piers)</p>
-
-        <div class="card">
-            <h2>Add-on Downloads</h2>
-            <ul>
-                <li>
-                    <div class="file-info">
-                        <a class="file-name" href="{repo_zip_name}">{repo_zip_name}</a>
-                        <span class="file-meta">Repository Installer (Install this in Kodi for auto-updates)</span>
-                    </div>
-                    <a class="download-btn" href="{repo_zip_name}">Download</a>
-                </li>
-                <li>
-                    <div class="file-info">
-                        <a class="file-name" href="{skin_id}/{skin_zip_name}">{skin_zip_name}</a>
-                        <span class="file-meta">Skynet Skin v{skin_version} (Direct Zip)</span>
-                    </div>
-                    <a class="download-btn" href="{skin_id}/{skin_zip_name}">Download</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>How to Install in Kodi</h2>
-            <ol>
-                <li>In Kodi, navigate to <strong>Settings (Gear Icon) &gt; File manager &gt; Add source</strong>.</li>
-                <li>Click <code>&lt;None&gt;</code> and enter this URL: <code>https://black-n-yellow412.github.io/Skynet/</code></li>
-                <li>Name the source <strong>Skynet</strong> and click <strong>OK</strong>.</li>
-                <li>Go back to the Home Screen &gt; <strong>Add-ons</strong> &gt; Box icon &gt; <strong>Install from zip file</strong>.</li>
-                <li>Select <strong>Skynet</strong> and choose <code>{repo_zip_name}</code>.</li>
-                <li>Once installed, select <strong>Install from repository</strong> &gt; <strong>Skynet Repository</strong> &gt; <strong>Look and feel</strong> &gt; <strong>Skin</strong> &gt; <strong>Skynet</strong>.</li>
-            </ol>
-        </div>
-    </div>
+    <h1>Index of /</h1>
+    <a href="../">Parent Directory</a>
+    <a href="addons.xml">addons.xml</a>                                                                                                 {apache_date}      1.2K
+    <a href="addons.xml.md5">addons.xml.md5</a>                                                                                           {apache_date}      32
+    <a href="repository.skynet-1.0.0.zip">repository.skynet-1.0.0.zip</a>                                                                 {apache_date}      1.4M
+    <a href="repository.skynet/">repository.skynet/</a>                                                                                   {apache_date}      -
+    <a href="skin.skynet/">skin.skynet/</a>                                                                                               {apache_date}      -
 </body>
 </html>
 """
