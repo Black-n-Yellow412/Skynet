@@ -47,6 +47,46 @@ def create_addon_zip(source_dir, output_zip_path, addon_id, exclude_patterns=Non
                 arcname = os.path.join(addon_id, rel_path)
                 zf.write(full_path, arcname)
 
+def generate_apache_index(dir_path, title, is_root=False):
+    import datetime
+    now = datetime.datetime.now()
+    apache_date = now.strftime("%d-%b-%Y %H:%M")
+    
+    entries = []
+    if not is_root:
+        entries.append(f'<a href="../">Parent Directory</a>{" " * 50}-')
+        
+    items = sorted(os.listdir(dir_path))
+    dirs = [i for i in items if os.path.isdir(os.path.join(dir_path, i)) and not i.startswith(".")]
+    files = [i for i in items if os.path.isfile(os.path.join(dir_path, i)) and not i.startswith(".") and i != "index.html"]
+    
+    for d in dirs:
+        d_name = f"{d}/"
+        spacing = max(1, 58 - len(d_name))
+        entries.append(f'<a href="{d_name}">{d_name}</a>{" " * spacing}{apache_date}{" " * 12}-')
+        
+    for f in files:
+        f_path = os.path.join(dir_path, f)
+        f_size = os.path.getsize(f_path)
+        spacing = max(1, 58 - len(f))
+        size_str = str(f_size)
+        size_spacing = max(1, 14 - len(size_str))
+        entries.append(f'<a href="{f}">{f}</a>{" " * spacing}{apache_date}{" " * size_spacing}{size_str}')
+        
+    content = f"""<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>{title}</title></head>
+<body>
+<h1>{title}</h1>
+<pre>
+""" + "\n".join(entries) + """
+</pre>
+</body>
+</html>
+"""
+    with open(os.path.join(dir_path, "index.html"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(content)
+
 def build_repo(skin_source_dir, repo_addon_dir, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     
@@ -103,8 +143,8 @@ def build_repo(skin_source_dir, repo_addon_dir, output_dir):
             
     # Copy screenshots to web output for browser viewing and repository metadata
     src_screenshots = os.path.join(skin_source_dir, "resources", "screenshots")
+    dest_screenshots = os.path.join(skin_resources_dir, "screenshots")
     if os.path.exists(src_screenshots):
-        dest_screenshots = os.path.join(skin_resources_dir, "screenshots")
         os.makedirs(dest_screenshots, exist_ok=True)
         for s in os.listdir(src_screenshots):
             shutil.copy2(os.path.join(src_screenshots, s), os.path.join(dest_screenshots, s))
@@ -148,38 +188,19 @@ def build_repo(skin_source_dir, repo_addon_dir, output_dir):
         f.write(master_md5)
     print(f"[+] Generated {master_md5_path}")
     
-    # 7. Generate index.html for web and Kodi HTTP File Manager browsing
-    # Kodi's HTTPDirectory parser requires a strict Apache-style directory listing format:
-    # 1. 'href' must be the first attribute inside the <a> tag (no classes or other attributes before it).
-    # 2. Each entry must be on a single line with trailing metadata (date, size) so the regex can match.
-    # 3. The dot in Kodi's regex does not match newlines, so multiline HTML layouts fail.
-    index_html_path = os.path.join(output_dir, "index.html")
-    
-    # Get current date/time in Apache format (e.g. 24-Jul-2026 21:49)
-    import datetime
-    now = datetime.datetime.now()
-    apache_date = now.strftime("%d-%b-%Y %H:%M")
-    
-    index_html_content = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Skynet Kodi Repository</title>
-</head>
-<body>
-    <h1>Index of /</h1>
-    <a href="../">Parent Directory</a>
-    <a href="addons.xml">addons.xml</a>                                                                                                 {apache_date}      1.2K
-    <a href="addons.xml.md5">addons.xml.md5</a>                                                                                           {apache_date}      32
-    <a href="repository.skynet-1.0.0.zip">repository.skynet-1.0.0.zip</a>                                                                 {apache_date}      1.4M
-    <a href="repository.skynet/">repository.skynet/</a>                                                                                   {apache_date}      -
-    <a href="skin.skynet/">skin.skynet/</a>                                                                                               {apache_date}      -
-</body>
-</html>
-"""
-    with open(index_html_path, "w", encoding="utf-8") as f:
-        f.write(index_html_content)
-    print(f"[+] Generated {index_html_path}")
+    # 7. Generate Apache-compatible index.html directory listings
+    # Kodi's HTTPDirectory parser requires:
+    # 1. 'href' must be the first attribute inside the <a> tag.
+    # 2. Each entry must be on a single line with trailing metadata (date, integer byte size).
+    # 3. Sizes must be exact integers in bytes (no decimals like 1.4M) so Kodi's reSize regex captures the exact byte length.
+    generate_apache_index(output_dir, "Index of /", is_root=True)
+    generate_apache_index(repo_out_dir, f"Index of /{repo_id}/", is_root=False)
+    generate_apache_index(skin_out_dir, f"Index of /{skin_id}/", is_root=False)
+    if os.path.exists(skin_resources_dir):
+        generate_apache_index(skin_resources_dir, f"Index of /{skin_id}/resources/", is_root=False)
+    if os.path.exists(dest_screenshots):
+        generate_apache_index(dest_screenshots, f"Index of /{skin_id}/resources/screenshots/", is_root=False)
+    print(f"[+] Generated Apache directory indexes in all repository folders")
     print("[+] Repository build complete successfully!")
 
 if __name__ == "__main__":
