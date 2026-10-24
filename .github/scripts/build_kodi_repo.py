@@ -91,17 +91,20 @@ def build_repo(skin_source_dir, repo_addon_dir, output_dir):
     with open(f"{skin_zip_path}.md5", "w", encoding="utf-8") as f:
         f.write(skin_zip_md5)
         
-    # Copy skin addon.xml and assets
+    # Copy skin addon.xml and assets (both root and resources/ subfolder for Kodi compatibility)
     shutil.copy2(skin_addon_xml_path, os.path.join(skin_out_dir, "addon.xml"))
+    skin_resources_dir = os.path.join(skin_out_dir, "resources")
+    os.makedirs(skin_resources_dir, exist_ok=True)
     for asset in ["icon.png", "fanart.jpg"]:
         src_asset = os.path.join(skin_source_dir, "resources", asset)
         if os.path.exists(src_asset):
             shutil.copy2(src_asset, os.path.join(skin_out_dir, asset))
+            shutil.copy2(src_asset, os.path.join(skin_resources_dir, asset))
             
     # Copy screenshots to web output for browser viewing and repository metadata
     src_screenshots = os.path.join(skin_source_dir, "resources", "screenshots")
     if os.path.exists(src_screenshots):
-        dest_screenshots = os.path.join(skin_out_dir, "resources", "screenshots")
+        dest_screenshots = os.path.join(skin_resources_dir, "screenshots")
         os.makedirs(dest_screenshots, exist_ok=True)
         for s in os.listdir(src_screenshots):
             shutil.copy2(os.path.join(src_screenshots, s), os.path.join(dest_screenshots, s))
