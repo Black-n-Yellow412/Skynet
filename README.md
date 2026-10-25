@@ -6,6 +6,18 @@
 
 This is a spinoff of the awesome main Estuary Mod V2 skin by B-Jesch. The goal behind this skin was to put color choice freedom via independent skin settings in as many new places as possible while tweaking a handful of other visual aspects of the Kodi addon. This skin was first created in Kodi 21 Omega and is still available. This Kodi 22 version includes everything that came in 21 but with additional UI tweaks. All non UI related Piers related stability, functionality and overall improvement fixes that B-Jesch merged into his Estuary Mod V2 skin have been and will continue to be merged into Skynet. The Skynet Colorpicker (script) has been bundled within the skin. No more need to install it seperately. 
 
+### How to Install Skynet:
+
+In Kodi, navigate to Settings (Gear Icon) > File manager > Add source.
+Click <None> and enter your repository URL:
+```
+https://black-n-yellow412.github.io/Skynet/
+```
+Enter the name for the media source: Skynet and click OK.
+Go back to Kodi Home Screen > Add-ons > Box icon (top left) > Install from zip file.
+Click Skynet and select `repository.skynet-1.0.0.zip`.
+Once the repository is installed, go to Install from repository > Skynet Repository > Look and feel > Skin > Skynet. 
+
 
 The included RGB script and how this optional feature could work for you:
 
