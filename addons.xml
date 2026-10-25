@@ -22,7 +22,7 @@
       </assets>
     </extension>
   </addon>
-  <addon id="skin.skynet" version="22.0+piers" name="Skynet" provider-name="Black-n-Yellow412">
+  <addon id="skin.skynet" version="22.0.1+piers" name="Skynet" provider-name="Black-n-Yellow412">
     <requires>
       <import addon="xbmc.python" version="3.0.1" />
       <import addon="xbmc.gui" version="5.18.0" />
@@ -74,7 +74,11 @@
         <screenshot>resources/screenshots/9.png</screenshot>
       </assets>
       <news>
-For a complete view of changes visit https://github.com/b-jesch/skin.estuary.modv2/tree/Piers
+v22.0.1+piers:
+- Restored Settings menu Skynet watermark logo
+- Added CPU core count display to Player Process Info and System Info
+- Upgraded Warning Pop-up dialog with automatic property cleanup
+- Added Skin Reset to default values utility in Skin Settings
         </news>
     </extension>
   </addon>
