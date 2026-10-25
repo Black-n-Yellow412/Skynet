@@ -889,6 +889,23 @@
 					<include>DefaultSettingButton</include>
 					<onclick>ReloadSkin()</onclick>
 				</control>
+				<control type="label" id="513">
+					<width>100%</width>
+					<height>50</height>
+					<label>$LOCALIZE[31728]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font28_title</font>
+					<textcolor>red</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="button" id="514">
+					<label>$LOCALIZE[31729]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>SetProperty(Popup_Header,$LOCALIZE[31729],home)</onclick>
+					<onclick>SetProperty(Popup_Text,$LOCALIZE[31730],home)</onclick>
+					<onclick>ActivateWindow(1136)</onclick>
+				</control>
 			</control>
 						
 			<control type="grouplist" id="800">
