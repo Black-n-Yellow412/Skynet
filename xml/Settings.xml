@@ -18,8 +18,8 @@
 			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
-			<texture background="true" colordiffuse="70FFFFFF">special://skin/extras/original-skynet-logo.png</texture>
-			<visible>![Player.HasVideo + !Skin.HasSetting(background_showvideo)] + !Skin.HasSetting(enable_settings_background)</visible>
+			<texture colordiffuse="70FFFFFF">special://skin/extras/original-skynet-logo.png</texture>
+			<visible>![Player.HasVideo + !Skin.HasSetting(background_showvideo)]</visible>
 		</control>
 		<control type="group">
 			<centerleft>50%</centerleft>
