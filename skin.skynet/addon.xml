@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.skynet" version="22.0.1+piers" name="Skynet" provider-name="Black-n-Yellow412">
+<addon id="skin.skynet" version="22.0.2+piers" name="Skynet" provider-name="Black-n-Yellow412">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/>
 		<import addon="xbmc.gui" version="5.18.0"/>
