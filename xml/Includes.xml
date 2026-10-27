@@ -4134,7 +4134,7 @@
 						<control type="grouplist">
 							<left>460</left>
 							<bottom>135</bottom>
-							<right>400</right>
+							<right>350</right>
 							<height>50</height>
 							<align>left</align>
 							<orientation>horizontal</orientation>
