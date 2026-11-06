@@ -2895,3 +2895,8 @@ msgstr "Achtung - Skin Reset"
 msgctxt "#31729"
 msgid "Reset Skin to default values"
 msgstr "Skin auf Standardeinstellungen zurücksetzen"
+
+#: /xml/SkinSettings.xml /xml/Custom_1142_Themes.xml
+msgctxt "#31732"
+msgid "Enable animated theme effects"
+msgstr "Zeige Animationen"
