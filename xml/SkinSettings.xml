@@ -1383,7 +1383,7 @@
 					<label>  ∟$LOCALIZE[31221]</label>
 					<label2>$INFO[Skin.String(BorderColor)]</label2>
 					<onclick>RunScript(special://skin/scripts/colorpicker/default.py,action=colorpicker,setting=BorderColor)</onclick>
-					<visible>Skin.HasSetting(show_borders)</visible>
+					<visible>!Skin.HasSetting(show_borders)</visible>
 				</control>
 				<control type="radiobutton" id="715">
 					<label>$LOCALIZE[31285]</label>
