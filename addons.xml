@@ -22,7 +22,7 @@
       </assets>
     </extension>
   </addon>
-  <addon id="skin.skynet" version="22.0.3+piers" name="Skynet" provider-name="Black-n-Yellow412">
+  <addon id="skin.skynet" version="22.0.4+piers" name="Skynet" provider-name="Black-n-Yellow412">
     <requires>
       <import addon="xbmc.python" version="3.0.1" />
       <import addon="xbmc.gui" version="5.18.0" />
@@ -74,6 +74,12 @@
         <screenshot>resources/screenshots/9.png</screenshot>
       </assets>
       <news>
+v22.0.4+piers:
+- Fixed player OSD and list view audio codec/channel info variable names
+- Added ListItemAudioCodecVar and ListItemAudioChannelsVar for media info display
+- Fixed BorderColor button visibility logic in Skin Settings
+- Fixed syntax error in View Banner XML (visible condition)
+
 v22.0.3+piers:
 - Added toggle to disable animated holiday theme effects in Skin Settings
 - Implemented Video Version support across List, Extended List, and Fanart views
